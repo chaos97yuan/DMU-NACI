@@ -3,8 +3,8 @@
 Code archive for the manuscript:
 
 > **Provenance-Controlled Residual Learning with Adaptive Conformal
-> Calibration for Cross-Year PV Prediction Intervals** — C. Shi, C. Jin,
-> S. Zhang, Z. Xiao. Manuscript in preparation for submission to
+> Calibration for Cross-Year PV Prediction Intervals** — C. Shi, Z. Xiao,
+> C. Jin, S. Zhang. Manuscript in preparation for submission to
 > *Solar Energy* (draft v3, October 2026).
 
 DMU-NACI (**D**ecoupled **M**ean–**U**ncertainty Learning with **N**ormalized
@@ -26,10 +26,11 @@ checkpoints and the aggregate result files behind each table and figure.
 > for the precise boundary and `docs/CHANGELOG.md` for every deviation from
 > the original project.
 >
-> **License: not yet open-source.** The `LICENSE` file is an all-rights-
-> reserved placeholder pending the rights holders' decision between MIT and
-> Apache-2.0 (candidate texts in `docs/license_candidates/`); until then no
-> redistribution or modification is licensed.
+> **License: MIT.** The original DMU-NACI software and associated
+> documentation are released under the [MIT License](LICENSE), subject to
+> authorization by their copyright holders. Third-party data and software
+> remain subject to their respective terms. The MIT License does not grant
+> permission to redistribute DKASC data.
 
 ---
 
@@ -132,7 +133,8 @@ smoke tests.
 
 ## 5. Preprocessing and splits (paper Section 3.1, Table 1)
 
-Cleaning (frozen QC rules, no target interpolation) → causal-safe 72×5 windows
+Cleaning (site-specific frozen QC rules; prediction targets are never
+interpolated; see [data/README.md](data/README.md)) → causal-safe 72×5 windows
 with target = origin+15 min → chronological splits: DEV
 `[2024-01-01, 2024-08-08)` (internal early-stop tail from 2024-07-17), SELECT
 `[2024-08-08, 2024-09-16)`, CALIB `[2024-09-16, 2024-10-02)`, SAME
@@ -230,19 +232,34 @@ artifacts; Table S1/S2 regeneration (legacy diagnostic generators).
 
 ## 10. License and citation
 
-**This repository is not yet open-source software.** `LICENSE` is an
-all-rights-reserved placeholder: running the code locally for verification of
-the manuscript is fine, but redistribution and modification are not licensed
-until the rights holders choose a license. The candidate texts (MIT,
-Apache-2.0) are provided verbatim in `docs/license_candidates/` for that
-decision; the selected text will replace `LICENSE` and the license field in
-`CITATION.cff` at that point. Third-party packages keep their own licenses.
+### Software license
 
-Data: DKASC Alice Springs, https://dkasolarcentre.com.au (data made available
-on request per the paper's Data Availability statement).
+The original DMU-NACI software and accompanying documentation are released
+under the **MIT License**; see [LICENSE](LICENSE). You may use, modify, and
+redistribute covered software in accordance with that license, including its
+requirement to retain the copyright and permission notice.
 
-Citation: see [CITATION.cff](CITATION.cff) (BibTeX will be added on
-publication).
+The MIT License does **not** supersede third-party licenses, institutional
+rights, or data-provider terms. The archived model weights and any derived
+per-sample artifacts should be distributed only after the applicable rights
+and data-provider restrictions have been checked. Third-party packages retain
+their own licenses.
+
+### Data
+
+The PV and meteorological records originate from the Desert Knowledge
+Australia Solar Centre (DKASC): https://dkasolarcentre.com.au.
+The original DKASC CSV exports are **not redistributed** in this repository;
+users must obtain them from the provider and comply with its terms.
+See [data/README.md](data/README.md) for acquisition, schema, and data-policy
+details. This repository is not fully reproducible from raw CSV alone;
+see [docs/MISSING_FILES.md](docs/MISSING_FILES.md).
+
+### Citation
+
+For academic citation, see [CITATION.cff](CITATION.cff). A manuscript BibTeX
+entry can be added once the associated paper is published. The manuscript is
+currently in preparation for submission to *Solar Energy*.
 
 ## 11. Archive provenance
 

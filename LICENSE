@@ -1,27 +1,21 @@
-Copyright (c) 2026 the DMU-NACI authors:
-Chaoyuan Shi, Zhiyun Xiao, Cheng Jin, Shuoguo Zhang, Chao Wang
+MIT License
 
-All rights reserved.
+Copyright (c) 2026 Chaoyuan Shi, Zhiyun Xiao, Cheng Jin, Shuoguo Zhang, Chao Wang
 
-STATUS: this is a PLACEHOLDER, not an open-source license. It will be replaced
-by the full text of the license the rights holders select (MIT or Apache-2.0;
-candidate texts are provided in docs/license_candidates/). Until that
-replacement, the terms below apply.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-This software is made available for peer review and reproducibility of the
-manuscript "Provenance-Controlled Residual Learning with Adaptive Conformal
-Calibration for Cross-Year PV Prediction Intervals" (manuscript in
-preparation for submission to Solar Energy) ONLY.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Redistribution and use in source and binary forms, with or without
-modification, are NOT permitted until the authors finalize an open-source
-license. No license is granted by this placeholder: all rights are reserved
-by the copyright holders above.
-
-Please contact the corresponding author (see CITATION.cff) for any use
-beyond running the code locally for verification.
-
-Third-party components remain under their own licenses:
-PyTorch (BSD-style), NumPy (BSD), pandas (BSD), SciPy (BSD), Matplotlib
-(matplotlib license), pyarrow (Apache-2.0), PyYAML (MIT), pytest (MIT).
-None of these are redistributed with this repository.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -5,7 +5,6 @@ message: >-
 title: >-
   DMU-NACI: Provenance-Controlled Residual Learning with Adaptive Conformal
   Calibration for Cross-Year PV Prediction Intervals (code archive)
-# author order and spelling follow the manuscript title page
 authors:
   - family-names: Shi
     given-names: Chaoyuan
@@ -33,9 +32,8 @@ authors:
     affiliation: >-
       College of Electric Power, Inner Mongolia University of Technology,
       Hohhot 010080, China
-# license: intentionally omitted while the repository LICENSE is an
-# all-rights-reserved placeholder; set to "MIT" or "Apache-2.0" (SPDX) when
-# the rights holders adopt one of docs/license_candidates/.
+license: MIT
+type: software
 # date-released: intentionally omitted until the public archival release;
 # the internal build date (2026-10-27) is recorded in docs/CHANGELOG.md.
 version: 1.0.2
