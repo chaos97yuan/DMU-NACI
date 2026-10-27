@@ -69,7 +69,7 @@ def main() -> None:
             sc = C.fit_scaler(grad["x_raw"])
             if ck.exists():
                 model = C.MultiScaleTCN(dropout=0.1).to(C.DEVICE)
-                model.load_state_dict(torch.load(ck, weights_only=False)["state_dict"])
+                model.load_state_dict(torch.load(ck, weights_only=True)["state_dict"])
                 model.eval()
             else:
                 model, info = C.train_tcn(grad, es, sc, seed)

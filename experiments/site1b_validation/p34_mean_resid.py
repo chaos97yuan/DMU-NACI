@@ -68,9 +68,9 @@ def main() -> None:
         ck = OUT / f"site1b_mean_checkpoint_seed{seed}.pt"
         if ck.exists():
             model = C.V2.MultiScaleTCN(dropout=0.1).to(C.V2.DEVICE)
-            model.load_state_dict(torch.load(ck, weights_only=False)["state_dict"])
+            model.load_state_dict(torch.load(ck, weights_only=True)["state_dict"])
             model.eval()
-            info = torch.load(ck, weights_only=False)["info"]
+            info = torch.load(ck, weights_only=True)["info"]
         else:
             model, info = V2.train_tcn(grad_rows, es_rows, sc, seed)
             torch.save({"state_dict": model.state_dict(), "site": "1B", "seed": seed,
@@ -110,7 +110,7 @@ def main() -> None:
             fsc = V2.fit_scaler(f_g["x_raw"])
             if ck.exists():
                 model = C.V2.MultiScaleTCN(dropout=0.1).to(C.V2.DEVICE)
-                model.load_state_dict(torch.load(ck, weights_only=False)["state_dict"])
+                model.load_state_dict(torch.load(ck, weights_only=True)["state_dict"])
                 model.eval()
             else:
                 model, info = V2.train_tcn(f_g, f_e, fsc, seed)
@@ -145,7 +145,7 @@ def main() -> None:
         for seed in C.SEEDS:
             model = C.V2.MultiScaleTCN(dropout=0.1).to(C.V2.DEVICE)
             model.load_state_dict(torch.load(OUT / f"site1b_mean_checkpoint_seed{seed}.pt",
-                                             weights_only=False)["state_dict"])
+                                             weights_only=True)["state_dict"])
             model.eval()
             mu = V2.tcn_mu(model, wy["x_raw"], sc).astype(np.float64)
             mp = C.mu_phys(mu)

@@ -32,7 +32,7 @@ EQUPD_VARIANTS = ["T1p_equpd", "T3p_equpd", "T3match_equpd"]
 
 
 def load_gru(variant: str, seed: int, sc: dict):
-    ck = torch.load(S6 / "checkpoints" / f"gru_{variant}_seed{seed}.pt", weights_only=False)
+    ck = torch.load(S6 / "checkpoints" / f"gru_{variant}_seed{seed}.pt", weights_only=True)
     assert ck["scaler_fp"] == C.scaler_fingerprint(sc), "scaler drift vs s6 checkpoint"
     model = C.ScaleModel("GRU").to(C.DEVICE)
     model.load_state_dict(ck["state_dict"])
@@ -78,7 +78,7 @@ def main() -> None:
     for seed in C.SEEDS:
         model = C.MultiScaleTCN(dropout=0.1).to(C.DEVICE)
         model.load_state_dict(torch.load(S2 / f"final_mean_seed{seed}.pt",
-                                         weights_only=False)["state_dict"])
+                                         weights_only=True)["state_dict"])
         model.eval()
         for tag, p in spans.items():
             mu_c[f"{tag}|{seed}"] = C.tcn_mu(model, p["x_raw"], sc).astype(np.float32)

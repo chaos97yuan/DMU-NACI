@@ -54,11 +54,11 @@ def main() -> None:
         g = gq[str(seed)]
         model = C.V2.MultiScaleTCN(dropout=0.1).to(C.V2.DEVICE)
         model.load_state_dict(torch.load(OUT / f"site1b_mean_checkpoint_seed{seed}.pt",
-                                         weights_only=False)["state_dict"])
+                                         weights_only=True)["state_dict"])
         model.eval()
         gru = C.V2.ScaleModel("GRU").to(C.V2.DEVICE)
         gru.load_state_dict(torch.load(OUT / "checkpoints" / f"site1b_gru_T3p_seed{seed}.pt",
-                                       weights_only=False)["state_dict"])
+                                       weights_only=True)["state_dict"])
         gru.eval()
         # CQR model (trained once per seed on the same grad rows / ES protocol)
         cqr_ck = OUT / f"site1b_cqr_seed{seed}.pt"
@@ -84,7 +84,7 @@ def main() -> None:
                     return self.head(self.trunk.forward_features(x))
 
             cqrm = _CQRNet().to(C.V2.DEVICE)
-            cqrm.load_state_dict(torch.load(cqr_ck, weights_only=False)["state_dict"])
+            cqrm.load_state_dict(torch.load(cqr_ck, weights_only=True)["state_dict"])
             cqrm.eval()
         else:
             cqrm, info = C.train_tcn_cqr(grad_rows, es_rows, sc, seed)

@@ -22,7 +22,7 @@ SEEDS = [42, 123, 2026, 3407, 8888]
 
 
 def _load(p: Path) -> dict:
-    return torch.load(p, weights_only=False, map_location="cpu")
+    return torch.load(p, weights_only=True, map_location="cpu")
 
 
 def _site18_scaler() -> dict:

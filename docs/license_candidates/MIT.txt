@@ -19,7 +19,7 @@ and update the banner in the root `README.md`.
 
 MIT License
 
-Copyright (c) 2026 Chaoyuan Shi, Cheng Jin, Shuoguo Zhang, Zhiyun Xiao
+Copyright (c) 2026 Chaoyuan Shi, Zhiyun Xiao, Cheng Jin, Shuoguo Zhang, Chao Wang
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

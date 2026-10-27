@@ -37,7 +37,7 @@ def main() -> None:
         d = C.load_year_windows(year)
         # the replayed model trained ONLY on 2024 rows -> disjoint by year; assert it
         for seed in C.SEEDS:
-            ck = torch.load(S2 / f"final_mean_seed{seed}.pt", weights_only=False)
+            ck = torch.load(S2 / f"final_mean_seed{seed}.pt", weights_only=True)
             assert ck["scaler_fp"] == fp, "scaler mismatch vs s2 checkpoint"
             model = C.MultiScaleTCN(dropout=0.1).to(C.DEVICE)
             model.load_state_dict(ck["state_dict"])

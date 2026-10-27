@@ -141,7 +141,7 @@ def main() -> None:
     for seed in C.SEEDS:
         ck = CQR_DIR / f"site18_cqr_seed{seed}.pt"
         model = p8b.CQRNet().to(C.DEVICE)
-        model.load_state_dict(torch.load(ck, weights_only=False)["state_dict"])
+        model.load_state_dict(torch.load(ck, weights_only=True)["state_dict"])
         model.eval()
 
         q_cal = p8b.quantiles(model, cal["x_raw"], sc)

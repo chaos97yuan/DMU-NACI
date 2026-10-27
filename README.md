@@ -11,9 +11,9 @@ DMU-NACI (**D**ecoupled **M**ean–**U**ncertainty Learning with **N**ormalized
 **A**daptive **C**onformal **I**nference) produces 15-minute-ahead probabilistic
 forecasts of photovoltaic power on DKASC Alice Springs **Site 18** (5.2 kW,
 fixed tilt) with cross-system replication on **Site 1B** (23.4 kW, dual-axis
-tracking). This repository contains the exact pipeline that produced every
-number in the paper, the frozen model checkpoints, and the aggregate result
-files that back each table and figure.
+tracking). This repository contains the principal experimental pipeline and the
+archived evidence supporting the reported results — the frozen model
+checkpoints and the aggregate result files behind each table and figure.
 
 > **Release status: pipeline and frozen-artifact release — not fully
 > end-to-end reproducible from raw CSV.**
@@ -65,7 +65,7 @@ and the target is the power 15 minutes ahead (`y_{t+3}`).
    FIFO queue that consumes only **matured** feedback (3 steps = 15 min):
    `α_t = clip(α_{t−1} + γ(α − err_{t−3}), 1e-3, 0.5)`, with γ selected per
    seed on SELECT. The issued interval is
-   `C = [μ ± q_t·σ, ]` with `q_t = Q(α_t)` (Algorithm 1).
+   `C = [μ − q_tσ, μ + q_tσ]` with `q_t = Q(α_t)` (Algorithm 1).
 
 The `2×2` ablation isolates the two mechanisms: A0 (absolute, fixed),
 A1 (absolute, ACI), A2 (normalized, fixed), **A3 (normalized, delayed ACI =

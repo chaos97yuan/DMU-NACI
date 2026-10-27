@@ -50,7 +50,7 @@ def load_cqr_quantiles(seed: int, sc: dict):
     spec.loader.exec_module(p8b)
     model = p8b.CQRNet().to(C.DEVICE)
     model.load_state_dict(torch.load(CQR_DIR / f"site18_cqr_seed{seed}.pt",
-                                     weights_only=False)["state_dict"])
+                                     weights_only=True)["state_dict"])
     model.eval()
     return model, p8b.quantiles
 
@@ -86,11 +86,11 @@ def main() -> None:
         # --- CALIB replay for the frozen quantile grids (identical to s7) ---
         model_m = C.MultiScaleTCN(dropout=0.1).to(C.DEVICE)
         model_m.load_state_dict(torch.load(S2 / f"final_mean_seed{seed}.pt",
-                                           weights_only=False)["state_dict"])
+                                           weights_only=True)["state_dict"])
         model_m.eval()
         mu_cal = C.mu_phys(C.tcn_mu(model_m, calib["x_raw"], sc).astype(np.float32).astype(np.float64))
         del model_m
-        ck = torch.load(S6 / "checkpoints" / f"gru_{winner}_seed{seed}.pt", weights_only=False)
+        ck = torch.load(S6 / "checkpoints" / f"gru_{winner}_seed{seed}.pt", weights_only=True)
         assert ck["scaler_fp"] == C.scaler_fingerprint(sc), "scaler drift vs s6 checkpoint"
         model_g = C.ScaleModel("GRU").to(C.DEVICE)
         model_g.load_state_dict(ck["state_dict"])

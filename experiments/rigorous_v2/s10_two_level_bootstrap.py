@@ -75,7 +75,7 @@ def empty_cache() -> None:
 
 
 def torch_load(path: Path):
-    return torch.load(path, weights_only=False)
+    return torch.load(path, weights_only=True)
 
 
 def is_values(y: np.ndarray, lo: np.ndarray, up: np.ndarray) -> np.ndarray:

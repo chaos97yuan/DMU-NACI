@@ -4,7 +4,38 @@
 除下列条目外，所有代码文件均为逐字复制。核心算法逻辑（模型结构、损失、训练
 策略、实验参数、评估协议）**零改动**。验证方式见 `REPRODUCIBILITY_REPORT.md`。
 
-## 0. 版本 1.0.1（2026-10-27，归档评审修订）
+## 0. 版本 1.0.2（2026-10-27，归档复审修订）
+
+1. **`torch.load` 安全加固（已回归验证的代码修改）**：发布版全部 31 处
+   `torch.load(..., weights_only=False)` 改为 `weights_only=True`（公共分发的
+   最小反序列化面）。切换前对全部 135 个冻结权重做了双路加载对比：
+   `weights_only=True/False` 张量级完全一致（135/135）；切换后回归：
+   `tests/test_checkpoint_loading.py` 71 项全过，沙箱内
+   `scripts/replay_s7_seed.py --seed 42` 对真实数据重放与归档指标偏差仍为
+   1e-8 量级（GPU 噪声级），结论不变。
+2. **元数据一致性更正**：CHANGELOG v1.0.1 中"300 个发布文件"更正为
+   "302 个"；CHANGELOG §4 与 `CODE_AUDIT_REPORT.md` §3.3 关于 CITATION
+   许可证的表述同步为"已移除 license 键（1.0.0 曾为 NOASSERTION），待权利人
+   选定后设为 SPDX MIT/Apache-2.0"。
+3. **图表复现口径统一**：`CODE_AUDIT_REPORT.md` 权威口径改为 4 张正文图
+   （Fig.3/4/6/7，本归档环境独立重执行、与论文 PNG 逐字节一致）；TCN 示意
+   （终稿未引用）作为辅助资产另行注明。
+4. **CITATION.cff**：移除 `date-released` 可选字段（内部构建日期保留于本
+   CHANGELOG；待公开 Release 时填写真实发布日期）；作者列表与论文题页的
+   5 位作者及顺序对齐（Shi, Xiao, Jin, Zhang, Wang）；`LICENSE` 与
+   `docs/license_candidates/MIT.txt` 的版权行同步为同一作者列表。
+5. **README 措辞**：区间公式更正为 `C = [μ − q_tσ, μ + q_tσ]`；"the exact
+   pipeline that produced every number" 改为 "the principal experimental
+   pipeline and the archived evidence supporting the reported results"，与
+   首页"非完整端到端可复现"的边界声明一致。
+6. **data/README.md**：精确区分清洗层（含功率在内的短缺口有界、逐格标记的
+   双侧线性插值）与窗口保留规则（目标必须直接观测、历史无缺失核心格、
+   禁止未来端点依赖插值），并补充 Site 1B 完全不插值的差异；此为论文
+   "Missing values are not interpolated..." 一句的代码级语义。
+7. **打包方式**：`DMU-NACI.zip` 改由 `git archive`（跟踪文件清单）生成，
+   保证不含 .git 对象、pytest/Matplotlib 缓存或任何未核对文件。
+
+## 0.1. 版本 1.0.1（2026-10-27，归档评审修订）
 
 本轮仅修订文档/打包/仓库治理，**无代码与数值变化**：
 
@@ -27,7 +58,7 @@
 4. **`.gitignore` 细粒度化**：`results/rigorous_v2/data/` 整目录排除改为
    "目录内排除 + `!*_audit.json` 白名单"，避免吞掉已发布的审计 JSON
    （2021/2022_windows_audit.json、s1_data_audit.json）。
-   已 `git init` 并以 `git status --ignored` 实际验收：300 个发布文件全部
+   已 `git init` 并以 `git status --ignored` 实际验收：302 个发布文件全部
    被跟踪、无发布文件被忽略、模拟再生成的 core/flags/X/parquet/npz 正确进入
    忽略列表（本地仓库，无 remote、未推送）。
 5. **许可证状态强化**：`LICENSE` 占位声明保持 all-rights-reserved 并新增
@@ -122,7 +153,8 @@ manifest、冻结清单、图表源数据、Table S1/S2 证据、论文数值字
 ## 4. 许可证状态
 
 作者/权属尚未最终确认开源许可：`LICENSE` 目前为 **All rights reserved 占位**，
-不授予任何再分发/修改权利；`CITATION.cff` 的 license 字段为 NOASSERTION。
+不授予任何再分发/修改权利；`CITATION.cff` 已移除 license 键（1.0.0 版曾为
+NOASSERTION），待权利人选定后设为 SPDX `MIT` 或 `Apache-2.0`。
 获得权利人确认后应替换为 MIT 或 Apache-2.0 并更新 CITATION.cff。
 
 ## 5. 布局说明

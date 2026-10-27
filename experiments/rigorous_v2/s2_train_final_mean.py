@@ -74,9 +74,9 @@ def main() -> None:
     for seed in C.SEEDS:
         ck = OUT / f"final_mean_seed{seed}.pt"
         if ck.exists():
-            info = torch.load(ck, weights_only=False)["info"]
+            info = torch.load(ck, weights_only=True)["info"]
             model = C.MultiScaleTCN(dropout=0.1).to(C.DEVICE)
-            model.load_state_dict(torch.load(ck, weights_only=False)["state_dict"])
+            model.load_state_dict(torch.load(ck, weights_only=True)["state_dict"])
             model.eval()
         else:
             model, info = C.train_tcn(parts["grad"], parts["es"], sc, seed)

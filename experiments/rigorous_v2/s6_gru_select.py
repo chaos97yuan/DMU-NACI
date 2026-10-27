@@ -190,7 +190,7 @@ def main() -> None:
                 ck = OUT / "checkpoints" / f"gru_{vname}_seed{seed}.pt"
                 if ck.exists() and "V" not in vname:
                     model = C.ScaleModel("GRU").to(C.DEVICE)
-                    sd = torch.load(ck, weights_only=False)
+                    sd = torch.load(ck, weights_only=True)
                     assert sd["n_train"] == len(estd), f"{vname}: stale checkpoint n_train"
                     model.load_state_dict(sd["state_dict"])
                     model.eval()

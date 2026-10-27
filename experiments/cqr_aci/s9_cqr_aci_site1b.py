@@ -110,7 +110,7 @@ def main() -> None:
         g = gq[str(seed)]
         cqrm = CQRNet().to(V2.DEVICE)
         cqrm.load_state_dict(torch.load(C.OUT / f"site1b_cqr_seed{seed}.pt",
-                                        weights_only=False)["state_dict"])
+                                        weights_only=True)["state_dict"])
         cqrm.eval()
 
         q_cal = C.cqr_quantiles(cqrm, cal["x_raw"], sc)
@@ -172,12 +172,12 @@ def main() -> None:
         # ---------- A3 (frozen protocol) and fixed CQR intervals ----------
         model = V2.MultiScaleTCN(dropout=0.1).to(V2.DEVICE)
         model.load_state_dict(torch.load(C.OUT / f"site1b_mean_checkpoint_seed{seed}.pt",
-                                         weights_only=False)["state_dict"])
+                                         weights_only=True)["state_dict"])
         model.eval()
         mu = C.mu_phys(V2.tcn_mu(model, w25["x_raw"], sc))
         gru = V2.ScaleModel("GRU").to(V2.DEVICE)
         gru.load_state_dict(torch.load(C.OUT / "checkpoints" / f"site1b_gru_T3p_seed{seed}.pt",
-                                       weights_only=False)["state_dict"])
+                                       weights_only=True)["state_dict"])
         gru.eval()
         sg = V2.sigma_kw(gru, w25["x_raw"], sc)
         mu_cal = C.mu_phys(mu_cache[f"calib|{seed}"].astype(np.float64))

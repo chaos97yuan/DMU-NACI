@@ -115,7 +115,7 @@ def main() -> None:
         ck = OUT / f"site18_cqr_seed{seed}.pt"
         if ck.exists():
             model = CQRNet().to(V2.DEVICE)
-            model.load_state_dict(torch.load(ck, weights_only=False)["state_dict"])
+            model.load_state_dict(torch.load(ck, weights_only=True)["state_dict"])
             model.eval()
         else:
             model = train_cqr(grad, es, sc, seed)

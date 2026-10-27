@@ -68,10 +68,25 @@ Full details: paper Section 3.1 and `configs/site18.yaml` (mirrors
 `experiments/rigorous_v2/common_v2.py`, which is authoritative).
 
 1. **Cleaning** (`scripts/02_clean_data.py`, frozen functions): unit QC on
-   power/radiation/humidity/rainfall, variable-specific interpolation for
-   *input* features only, segment bookkeeping. Missing values are **not**
-   interpolated; windows whose inputs or target are incomplete/imputed are
-   excluded.
+   power/radiation/humidity/rainfall; short gaps in any variable (power
+   included) may be filled by **bounded, per-cell-flagged two-sided linear
+   interpolation** with per-variable gap-length caps (long gaps stay missing
+   and split the record into segments). Two separate rules then decide what
+   may enter a window (see next item), so interpolated values can never reach
+   a window target and can only remain in an input history when their
+   interpolation used no information beyond that history.
+2. **Window retention** (`common_v2.build_year_windows` +
+   `src/eval/historical_interpolation_causality_audit.py`): a window is
+   retained only if (a) its 15-min-ahead **target is a directly observed
+   (non-imputed) power value** — imputed targets are excluded;
+   (b) the 72-step input history lies inside a single QC-clean segment with
+   no missing core cells; and (c) **no input value depends on an
+   interpolation whose right endpoint lies outside the history**
+   ("future-endpoint-dependent" windows are dropped). Site 1B
+   (`common_1b.build_clean`) is stricter still: **no interpolation anywhere**,
+   and windows require contiguous fully-valid runs. This is the precise
+   code-level meaning of the paper's sentence "Missing values are not
+   interpolated, and incomplete input windows are excluded".
 2. **Causal-safe windows** (`src/eval/historical_interpolation_causality_audit.py`):
    input = 72 steps (6 h at 5 min) ending at the forecast origin; target =
    origin + 15 min; windows depending on future-interpolation endpoints are

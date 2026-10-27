@@ -17,7 +17,7 @@
 | `experiments/rigorous_v2/` | `common_v2.py`（协议核心：角色边界断言、清洗调用、scaler、训练器、指标、ACI、bootstrap）+ `s1`–`s8`、`s10`、`preopen.py` | ✔ s7 全量重跑逐位一致；◆ s1/s3/s4/s5/s6/s8/s10 逐行走查（导入✔，执行需数据） |
 | `experiments/site1b_validation/` | `common_1b.py`（Site 1B 适配层，复用 common_v2 算法）+ `phase01/p2/p34/p567/p8/p8b/p9` | ✔ p8 全量重跑逐位一致；◆ p2/p34/p567/p9 走查 |
 | `experiments/cqr_aci/` | `s9_cqr_aci_site18.py`、`s9_cqr_aci_site1b.py`（CQR复现门控+CQR-ACI） | ✔ site18 全量重跑逐位一致 |
-| `figures/` | 3层图表脚本 + 9个可发布源数据CSV + README（逐图溯源） | ✔ 5张论文图逐字节复现 |
+| `figures/` | 3层图表脚本 + 9个可发布源数据CSV + README（逐图溯源） | ✔ 权威清单为4张正文图（Fig.3/4/6/7）：本归档环境独立重执行生成并与论文PNG逐字节（MD5）一致；另1张辅助资产（TCN示意，终稿未引用）亦逐字节一致 |
 | `legacy/preopen_builders/` | 37rh/37rj 预开宇宙构建器（逐字保留） | ◆ 静态走查；✖ 本库内不可运行（依赖闭合缺失，已声明） |
 | `scripts/` | 合成数据生成、论文数值核验、单种子重放 | ✔ 全部执行通过 |
 | `tests/` | 8个测试文件，125项 | ✔ 125/125 通过 |
@@ -71,7 +71,8 @@ $ find . -name "*Zone.Identifier*" -o -name "__pycache__" -o -name "*.pyc"
 ### 3.3 许可证 ◆（待作者确认）
 
 - **未擅自授予开源许可**：`LICENSE` 为 All-rights-reserved 占位，
-  声明仅限论文复现用途；`CITATION.cff` license=NOASSERTION。
+  声明仅限论文复现用途；`CITATION.cff` 不设 license 键（待权利人选定后设为
+  SPDX `MIT`/`Apache-2.0`，候选全文见 `docs/license_candidates/`）。
 - 建议路径：确认全体作者权属后采用 MIT 或 Apache-2.0，并替换该文件。
 - 代码中无第三方代码片段拷贝（◆：核心模块均始于本项目的开发历史；
   tcn_blocks 为项目自实现因果TCN）。

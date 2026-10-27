@@ -70,12 +70,12 @@ def main() -> None:
     same = C.sub(y2024, C.span_mask(y2024["origins"], *C.SAME))
     spans = {"same": same, "cross": y2025}
 
-    mean_ck = torch.load(CK / f"final_mean_seed{seed}.pt", weights_only=False,
+    mean_ck = torch.load(CK / f"final_mean_seed{seed}.pt", weights_only=True,
                          map_location=C.DEVICE)
     model = C.MultiScaleTCN(dropout=0.1).to(C.DEVICE)
     model.load_state_dict(mean_ck["state_dict"])
     model.eval()
-    gru_ck = torch.load(CK / f"gru_{winner}_seed{seed}.pt", weights_only=False,
+    gru_ck = torch.load(CK / f"gru_{winner}_seed{seed}.pt", weights_only=True,
                         map_location=C.DEVICE)
     gru = C.ScaleModel("GRU").to(C.DEVICE)
     gru.load_state_dict(gru_ck["state_dict"])

@@ -27,7 +27,7 @@ def sigma_diag() -> dict:
     for seed in [42]:
         gru = C.V2.ScaleModel("GRU").to(C.V2.DEVICE)
         gru.load_state_dict(torch.load(S1B / "checkpoints" / f"site1b_gru_T3p_seed{seed}.pt",
-                                       weights_only=False)["state_dict"])
+                                       weights_only=True)["state_dict"])
         gru.eval()
         for y in (2022, 2023):
             w = C.windows(C.load_year_grid(y))

@@ -84,7 +84,7 @@ def main() -> None:
         ck = OUT / "checkpoints" / f"site1b_gru_T3p_seed{seed}.pt"
         if ck.exists():
             model = C.V2.ScaleModel("GRU").to(C.V2.DEVICE)
-            model.load_state_dict(torch.load(ck, weights_only=False)["state_dict"])
+            model.load_state_dict(torch.load(ck, weights_only=True)["state_dict"])
             model.eval()
         else:
             model, steps, secs = V2.train_gru(xs, estd, seed)
@@ -116,7 +116,7 @@ def main() -> None:
     for seed in C.SEEDS:
         model = C.V2.ScaleModel("GRU").to(C.V2.DEVICE)
         model.load_state_dict(torch.load(OUT / "checkpoints" / f"site1b_gru_T3p_seed{seed}.pt",
-                                         weights_only=False)["state_dict"])
+                                         weights_only=True)["state_dict"])
         model.eval()
         mu_sel = C.mu_phys(mu_cache[f"select|{seed}"].astype(np.float64))
         sg_sel = V2.sigma_kw(model, sel["x_raw"], sc)
