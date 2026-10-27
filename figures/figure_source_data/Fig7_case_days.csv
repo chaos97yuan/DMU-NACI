@@ -1,0 +1,4 @@
+case,day,rule,clearness,flicker,hard_df_share,energy_kwh,display_seed
+C1_clear_stable,2025-05-18,argmax z(clearness) - z(flicker),0.7362939274862088,0.016608279473142567,0.0,31.117536906992157,42
+C2_cloud_variable,2025-12-30,argmax z(flicker) - z(clearness) among energy >= median,0.47650720713698874,0.08196737311694154,0.24305555555555555,31.3426776171024,42
+C3_ramp_harddf,2025-04-19,argmax frozen HARD_DF origin share (tie: mean daytime |dP|),0.4045682180116659,0.09282998473169136,0.3923611111111111,26.300419360826087,42

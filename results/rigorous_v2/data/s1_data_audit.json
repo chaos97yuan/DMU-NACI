@@ -1,0 +1,56 @@
+{
+  "windows": [
+    {
+      "daylight_share": 0.47369528197936495,
+      "dtype": "float32",
+      "first_origin": "2021-01-01 05:55:00",
+      "last_origin": "2021-12-31 23:40:00",
+      "months_covered": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "n_windows": 99830,
+      "x_finite": true,
+      "y_finite": true,
+      "y_kw_mean": 1.2444985864376323,
+      "y_kw_std": 1.683994995338269,
+      "year": 2021
+    },
+    {
+      "daylight_share": 0.47638685775567907,
+      "dtype": "float32",
+      "first_origin": "2022-01-01 05:55:00",
+      "last_origin": "2022-12-31 23:40:00",
+      "months_covered": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "n_windows": 102570,
+      "x_finite": true,
+      "y_finite": true,
+      "y_kw_mean": 1.1970402341077921,
+      "y_kw_std": 1.6449067014433845,
+      "year": 2022
+    }
+  ]
+}

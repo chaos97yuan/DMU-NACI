@@ -1,0 +1,10 @@
+{
+  "B_outer": 2000,
+  "rng_seed": 2026,
+  "outer": "resample 5 seeds with replacement",
+  "inner": "one day-block resample of the 2025 cross span per picked seed (same picked days for both arms)",
+  "statistic": "median across the five picked seeds of the paired difference",
+  "point_estimate": "median across seeds of full-sample paired differences (unchanged)",
+  "arms_replay_validated": "mean IS vs frozen per-seed CSVs (1e-9 exact-replay arms, 1e-6 checkpoint-replay arms)",
+  "code_hash": "9b3da724b435f7f2"
+}

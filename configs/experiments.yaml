@@ -1,0 +1,70 @@
+# Experiment registry for the DMU-NACI paper.
+#
+# Documentation of what each experiment runs and where its outputs are written.
+# The commands below are the actual entry points (run from the repository root).
+
+environment:
+  python: ">=3.11"
+  torch: ">=2.0"
+  note: "all scripts auto-select cuda when available; results were produced on a single GPU"
+
+# ---------------------------------------------------------------- pipelines ---
+site18_pipeline:               # experiments/rigorous_v2/ (DMU-NACI main, Site 18)
+  steps:
+    - {id: s1, cmd: "python experiments/rigorous_v2/s1_build_data.py", desc: "build 2021+2022 cleaned cores and causal-safe windows from raw DKASC"}
+    - {id: s2, cmd: "python experiments/rigorous_v2/s2_train_final_mean.py", desc: "train/freeze final mean TCN per seed (DEV gradient+ES rows, scaler on gradient rows)"}
+    - {id: s3, cmd: "python experiments/rigorous_v2/s3_e24_oof.py", desc: "E24_OOF: 4 rolling-origin expanding-window folds, per-fold scaler+TCN refit"}
+    - {id: s4, cmd: "python experiments/rigorous_v2/s4_replay.py", desc: "E22/E23_replay: frozen s2 TCN replayed on archived 2022/2023 (deployment scaler)"}
+    - {id: s5, cmd: "python experiments/rigorous_v2/s5_vintage.py", desc: "vintage residuals M22/M23/M24 (provenance sensitivity arm)"}
+    - {id: s6, cmd: "python experiments/rigorous_v2/s6_gru_select.py", desc: "residual pools -> GRU scale encoders -> pre-registered pool selection -> gamma selection -> FREEZE_MANIFEST"}
+    - {id: s7, cmd: "python experiments/rigorous_v2/s7_final_eval.py", desc: "CALIB conformal quantiles -> SAME/CROSS evaluation incl. A0-A3 (2025 opened here, report-only)"}
+    - {id: s8, cmd: "python experiments/rigorous_v2/s8_report.py", desc: "consolidated audit report"}
+    - {id: s9, cmd: "python experiments/cqr_aci/s9_cqr_aci_site18.py", desc: "CQR reproduce gate -> CQR+ACI (Site 18)"}
+    - {id: s10, cmd: "python experiments/rigorous_v2/s10_two_level_bootstrap.py", desc: "two-level (seed x day-block) bootstrap for quoted paired CIs"}
+  outputs: "results/rigorous_v2/ (created on first run)"
+
+site1b_pipeline:               # experiments/site1b_validation/
+  steps:
+    - {id: p01, cmd: "python experiments/site1b_validation/phase01_audit.py", desc: "raw column audit"}
+    - {id: p2, cmd: "python experiments/site1b_validation/p2_clean.py", desc: "build site1b_5var_5min.csv (no interpolation)"}
+    - {id: p34, cmd: "python experiments/site1b_validation/p34_mean_resid.py", desc: "site-1B mean TCN + OOF/replay residual pools"}
+    - {id: p567, cmd: "python experiments/site1b_validation/p567_gru_freeze.py", desc: "GRU scale training + pool selection + gamma/q freeze"}
+    - {id: p8, cmd: "python experiments/site1b_validation/p8_eval.py", desc: "A0-A3 evaluation incl. first 2025 opening"}
+    - {id: p8b, cmd: "python experiments/site1b_validation/p8b_site18_cqr.py", desc: "Site 18 canonical CQR (Table 5 comparator)"}
+    - {id: p9, cmd: "python experiments/site1b_validation/p9_report.py", desc: "cross-system report"}
+  outputs: "results/site1b_val/ (created on first run)"
+
+# ------------------------------------------------------------------ methods ---
+ablation_2x2:                  # Section 3.3; implemented in s7_final_eval.py / p8_eval.py
+  A0: "absolute score, fixed quantile"
+  A1: "absolute score, delayed ACI"
+  A2: "normalized score, fixed quantile"
+  A3: "normalized score, delayed ACI  (DMU-NACI, deployed)"
+
+baselines:
+  CQR: "TCN trunk + Linear(64,3) pinball head {0.05,0.50,0.95}; CALIB conformal quantile (p8b_site18_cqr.py / common_1b.train_tcn_cqr)"
+  CQR_ACI: "frozen CQR scores + the same 3-step delayed ACI rule as A3 (s9_cqr_aci_*.py)"
+
+residual_pools:                # Section 2.3; built in s3/s4/s5, packed in s6
+  T1p:  "E24_OOF (28,418)"
+  T2p:  "E24_OOF + E23_replay (127,789)"
+  T3p:  "E24_OOF + E23_replay + E22_replay (230,359) -- frozen winner"
+  T1in: "in-sample residuals of the final mean on grad+ES rows (61,208)"
+  T3match: "T3p stratified subsample matching T1p size x month x daylight (28,418)"
+  V1:   "2024-vintage residuals trimmed to origins < 2024-08-08 (61,211)"
+  V2:   "vintages 2023+2024"
+  V3:   "vintages 2022+2023+2024 (263,152)"
+
+figures:                       # figures/ -- provenance per figure in figures/README.md
+                               # keys use the FINAL manuscript numbering (7 main figures
+                               # + Fig.S1); asset file names are legacy labels.
+  fig3_representation: "python figures/latex_v4_repair/fig5_representation_repair.py"
+  fig4_provenance:     "python figures/latex_v4_repair/fig6_provenance_pools_repair.py"
+  fig5_ablation:       "python figures/latex_v4_repair/fig8_ablation_dynamic_repair.py  (requires per-sample artifacts from s7+s0)"
+  fig6_harddf:         "python figures/latex_v5_repair/fig5_harddf_conditional_v5.py"
+  fig7_crosssystem:    "python figures/latex_v5_repair/fig6_crosssystem_v5.py"
+  figS1_examples:      "python figures/latex_v4_repair/fig7_interval_examples_repair.py  (requires per-sample artifacts)"
+  aux_not_in_final_pdf:
+    fig2_3_schematics:   "python figures/latex_v4_repair/fig2_3_schematics_repair.py"
+    figS5_rolling:       "python figures/latex_v5_repair/figS5_rolling_v5.py  (requires per-sample CQR interval CSVs)"
+    fig1_data_overview:  "python figures/latex_v4_repair/fig1_data_overview_repair.py  (requires 2024_core.csv)"

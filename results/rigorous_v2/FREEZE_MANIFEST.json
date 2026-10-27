@@ -1,0 +1,162 @@
+{
+  "asserts": [
+    "role spans disjoint",
+    "no 2025 in any pool/SELECT artifact",
+    "provenance labels within allowed set",
+    "scaler identical across variants (single fingerprint)"
+  ],
+  "code_hashes": {
+    "__init__.py": "e3b0c44298fc1c14",
+    "common_v2.py": "84d22a7f8afb2b95",
+    "s1_build_data.py": "10e1a0f09c8545c3",
+    "s2_train_final_mean.py": "ef4d1deef46672bc",
+    "s3_e24_oof.py": "64027aa9970617c9",
+    "s4_replay.py": "f747ec5ce4acb873",
+    "s5_vintage.py": "9af483860a56a80e",
+    "s6_gru_select.py": "132c72d49cbd4f05",
+    "s7_final_eval.py": "2a86d4ec81c003e1",
+    "s8_report.py": "9135bb08d52aed77"
+  },
+  "created": "2026-10-01T20:42:33.004681",
+  "daylight_rule": "origin GHI > 20.0 W/m2 (frozen)",
+  "gamma_selection": {
+    "123": {
+      "gamma_A1": 0.02,
+      "gamma_A3": 0.001
+    },
+    "2026": {
+      "gamma_A1": 0.02,
+      "gamma_A3": 0.001
+    },
+    "3407": {
+      "gamma_A1": 0.02,
+      "gamma_A3": 0.001
+    },
+    "42": {
+      "gamma_A1": 0.05,
+      "gamma_A3": 0.001
+    },
+    "8888": {
+      "gamma_A1": 0.05,
+      "gamma_A3": 0.001
+    }
+  },
+  "gru_checkpoints": {
+    "gru_T1in_seed123.pt": "9dad5fc488028cdc",
+    "gru_T1in_seed2026.pt": "1b5d60cfc0d9da07",
+    "gru_T1in_seed3407.pt": "4d44805d1ddee39a",
+    "gru_T1in_seed42.pt": "6d09545174748fb4",
+    "gru_T1in_seed8888.pt": "f5434de687c40c15",
+    "gru_T1p_equpd_seed123.pt": "fef38b6750aaad93",
+    "gru_T1p_equpd_seed2026.pt": "43b658599b7f4073",
+    "gru_T1p_equpd_seed3407.pt": "b800ecc6dda7535c",
+    "gru_T1p_equpd_seed42.pt": "c0a90619f594c585",
+    "gru_T1p_equpd_seed8888.pt": "a97dae935e64ecd7",
+    "gru_T1p_seed123.pt": "a95da5c8532006c6",
+    "gru_T1p_seed2026.pt": "d3b1855a611991c9",
+    "gru_T1p_seed3407.pt": "fe87c01b07f34245",
+    "gru_T1p_seed42.pt": "52e5bad6ccbd02a3",
+    "gru_T1p_seed8888.pt": "141d3bf715c7b8c1",
+    "gru_T2p_seed123.pt": "ccefdb2b376584c7",
+    "gru_T2p_seed2026.pt": "6676594692bea40f",
+    "gru_T2p_seed3407.pt": "0fb1eb935ab5efff",
+    "gru_T2p_seed42.pt": "c36389b7d0857dcd",
+    "gru_T2p_seed8888.pt": "1b7ac9d1724565fe",
+    "gru_T3match_equpd_seed123.pt": "6a55e5e221206c72",
+    "gru_T3match_equpd_seed2026.pt": "99b8bb2165de02be",
+    "gru_T3match_equpd_seed3407.pt": "3fcdd8f1cb9f6a23",
+    "gru_T3match_equpd_seed42.pt": "099eefaa4fa1c472",
+    "gru_T3match_equpd_seed8888.pt": "03e82900e062e3bc",
+    "gru_T3match_seed123.pt": "a0a87be244212e2b",
+    "gru_T3match_seed2026.pt": "9dafea86cc9f6f46",
+    "gru_T3match_seed3407.pt": "3f7c48cc547b744a",
+    "gru_T3match_seed42.pt": "bb270ed844f688d2",
+    "gru_T3match_seed8888.pt": "c483218827fc3ee7",
+    "gru_T3p_equpd_seed123.pt": "5d9dec9044a1011e",
+    "gru_T3p_equpd_seed2026.pt": "0e537d73bf82d774",
+    "gru_T3p_equpd_seed3407.pt": "54d00e084a29924b",
+    "gru_T3p_equpd_seed42.pt": "f89e2ea43239bf88",
+    "gru_T3p_equpd_seed8888.pt": "70a805090656cdbc",
+    "gru_T3p_seed123.pt": "a0bfa7f3eec98f1b",
+    "gru_T3p_seed2026.pt": "61da72fea3deb088",
+    "gru_T3p_seed3407.pt": "c317ed26935a613d",
+    "gru_T3p_seed42.pt": "410d8228ba01611c",
+    "gru_T3p_seed8888.pt": "b1878f8da6e028a7",
+    "gru_V1_seed123.pt": "7b4b5969eec87f29",
+    "gru_V1_seed2026.pt": "d218439a9f66dc54",
+    "gru_V1_seed3407.pt": "e327361ff3e00081",
+    "gru_V1_seed42.pt": "e409f0dacc395e41",
+    "gru_V1_seed8888.pt": "eb773b511bfd43dc",
+    "gru_V2_seed123.pt": "2443b077378d4404",
+    "gru_V2_seed2026.pt": "adf91205bd74b7cb",
+    "gru_V2_seed3407.pt": "a54bab8a9ba5294a",
+    "gru_V2_seed42.pt": "32fe3255c2cab0b8",
+    "gru_V2_seed8888.pt": "8be26f9410a8dc61",
+    "gru_V3_seed123.pt": "e492bd4d6b3a1e49",
+    "gru_V3_seed2026.pt": "53a00d1f189ecaad",
+    "gru_V3_seed3407.pt": "06fdf6a586ee5d48",
+    "gru_V3_seed42.pt": "135bc4d2c8494ac4",
+    "gru_V3_seed8888.pt": "b639f7f6d71bcadb"
+  },
+  "mean_checkpoints": {
+    "final_mean_seed123.pt": "2531e931a78e5da6",
+    "final_mean_seed2026.pt": "be7b399af08d0b85",
+    "final_mean_seed3407.pt": "6d921179a81ccf5d",
+    "final_mean_seed42.pt": "2b839579a36c3955",
+    "final_mean_seed8888.pt": "48b7122a087c8f49"
+  },
+  "pool_manifest_rows": 8,
+  "role_boundaries": {
+    "CALIB": [
+      "2024-09-16 00:00",
+      "2024-10-01 23:40"
+    ],
+    "CROSS": [
+      "2025-01-01 00:00",
+      "2026-01-01 00:00"
+    ],
+    "MEAN_ES": [
+      "2024-07-17 00:00",
+      "2024-08-08 00:00"
+    ],
+    "MEAN_GRAD": [
+      "2024-01-01 00:00",
+      "2024-07-17 00:00"
+    ],
+    "SAME": [
+      "2024-10-02 00:00",
+      "2024-12-31 23:40"
+    ],
+    "SELECT": [
+      "2024-08-08 00:00",
+      "2024-09-15 23:40"
+    ]
+  },
+  "scaler_fingerprint": "ea3e2bb0d86a02d9",
+  "selection_decision": {
+    "abs_Std_z_minus_1": {
+      "T1p": 0.0057160146350025975,
+      "T2p": 0.05539252657665461,
+      "T3p": 0.07933069359437472
+    },
+    "eligible": [
+      "T1p",
+      "T2p",
+      "T3p"
+    ],
+    "feasible": [
+      "T1p",
+      "T2p",
+      "T3p"
+    ],
+    "median_NLL": {
+      "T1p": -1.043314032563208,
+      "T2p": -1.8244242607435015,
+      "T3p": -1.9754789645531259
+    },
+    "note": "SELECT span only; 2025 never loaded in s6",
+    "rule": "feasible median |Std_z-1|<=0.35 on SELECT; argmin median NLL; ties -> smaller window; eligible={T1p,T2p,T3p}; scaler=common",
+    "winner": "T3p"
+  },
+  "winner": "T3p"
+}

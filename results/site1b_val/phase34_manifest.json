@@ -1,0 +1,118 @@
+{
+  "p_rated_kw": 23.4,
+  "scaler_fp": "2c0d77f2f8fed962",
+  "grad_rows": 46860,
+  "es_rows": 5717,
+  "fold_audit": [
+    {
+      "fold": "F1",
+      "n_fc": 8062,
+      "RMSE": 1.1632429231342238,
+      "MAE": 0.5581110763988794,
+      "abs_q95": 2.231845091380856
+    },
+    {
+      "fold": "F2",
+      "n_fc": 6746,
+      "RMSE": 0.8123424355986039,
+      "MAE": 0.29299088424178615,
+      "abs_q95": 1.552555885195126
+    },
+    {
+      "fold": "F3",
+      "n_fc": 7489,
+      "RMSE": 0.7657886247648804,
+      "MAE": 0.27959804483759154,
+      "abs_q95": 1.028372264076944
+    },
+    {
+      "fold": "F4",
+      "n_fc": 1801,
+      "RMSE": 1.2311818512711015,
+      "MAE": 0.4436281866805559,
+      "abs_q95": 2.790418932547574
+    }
+  ],
+  "replay_audit": {
+    "2022": {
+      "n": 487075,
+      "mean_e": 0.012450734699958468,
+      "std_e": 0.977812369090247,
+      "MAE": 0.44987536060038,
+      "RMSE": 0.9778916350702925,
+      "abs_q50": 0.1129060718099355,
+      "abs_q90": 1.1789104477293608,
+      "abs_q95": 2.095129530651351,
+      "day_share": 0.47431093774059435,
+      "monthly_n": {
+        "1": 31505,
+        "2": 37015,
+        "3": 44170,
+        "4": 37810,
+        "5": 44640,
+        "6": 37055,
+        "7": 44265,
+        "8": 43460,
+        "9": 41125,
+        "10": 44220,
+        "11": 41675,
+        "12": 40135
+      }
+    },
+    "2023": {
+      "n": 454715,
+      "mean_e": -0.038342942082497375,
+      "std_e": 0.815946946234552,
+      "MAE": 0.35071442778634404,
+      "RMSE": 0.8168473543306808,
+      "abs_q50": 0.09977893029093288,
+      "abs_q90": 0.7839104428096899,
+      "abs_q95": 1.6380379707620725,
+      "day_share": 0.46388397127871306,
+      "monthly_n": {
+        "1": 32385,
+        "2": 38510,
+        "3": 42885,
+        "4": 37245,
+        "5": 41750,
+        "6": 36120,
+        "7": 33860,
+        "8": 42760,
+        "9": 43200,
+        "10": 43140,
+        "11": 36440,
+        "12": 26420
+      }
+    }
+  },
+  "mean_ck": {
+    "site1b_mean_checkpoint_seed123.pt": "9e6f91f1598d0d21",
+    "site1b_mean_checkpoint_seed2026.pt": "082ae83c4fc51f54",
+    "site1b_mean_checkpoint_seed3407.pt": "7ffeb79a5a3a4b2e",
+    "site1b_mean_checkpoint_seed42.pt": "1c003f5bd87a15ba",
+    "site1b_mean_checkpoint_seed8888.pt": "133ea3d089cffb90"
+  },
+  "oof_ck": {
+    "site1b_oof_F1_seed123.pt": "9ee6d5cd4265f8dc",
+    "site1b_oof_F1_seed2026.pt": "f1363a525b1b63b2",
+    "site1b_oof_F1_seed3407.pt": "37ff5bd7e8bd936e",
+    "site1b_oof_F1_seed42.pt": "43ffcbdadd2323fd",
+    "site1b_oof_F1_seed8888.pt": "69534b5a0c4d6dd4",
+    "site1b_oof_F2_seed123.pt": "8d0e0bab7c9bdb56",
+    "site1b_oof_F2_seed2026.pt": "72e7155509f32ed6",
+    "site1b_oof_F2_seed3407.pt": "5f0ad04a97770611",
+    "site1b_oof_F2_seed42.pt": "5424f34684ca0d03",
+    "site1b_oof_F2_seed8888.pt": "1a0065654d4b8072",
+    "site1b_oof_F3_seed123.pt": "de9073d21f39f880",
+    "site1b_oof_F3_seed2026.pt": "6193b8ef18021d40",
+    "site1b_oof_F3_seed3407.pt": "8177f78959e0aae6",
+    "site1b_oof_F3_seed42.pt": "d8628b1074b06685",
+    "site1b_oof_F3_seed8888.pt": "7d23686e4f39e567",
+    "site1b_oof_F4_seed123.pt": "691f4eb8a7911a02",
+    "site1b_oof_F4_seed2026.pt": "8125bf8879b4e58c",
+    "site1b_oof_F4_seed3407.pt": "be814acbb1a78e5b",
+    "site1b_oof_F4_seed42.pt": "d8d9adbb8e51b3bf",
+    "site1b_oof_F4_seed8888.pt": "3e04abe6111ea6f2"
+  },
+  "note_2023": "2023 replay retains the sustained reduced-power operational state; no capacity renormalization applied"
+}

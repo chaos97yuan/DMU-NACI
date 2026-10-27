@@ -1,0 +1,10 @@
+{
+  "name": "DKASC Alice Springs Site 1B",
+  "source_page": "https://dkasolarcentre.com.au/source/alice-springs/dka-m9-a-c-phases",
+  "official_title": "DKASC, Alice Springs 1B Trina mono-Si Dual 2009",
+  "technology": "Trina mono-Si, dual-axis tracking, 4 trackers, commissioned 2009",
+  "rated_capacity_kw": 23.4,
+  "rated_capacity_source": "literature (IET RPG / Frontiers studies cite 23.4 kW); data max 21.8-23.0 kW",
+  "shared_weather_with_site18": "101 DKA WeatherStation (same physical channels)",
+  "relationship_to_site18": "same meteorological environment; different capacity, array configuration and tracking; supports cross-system (not cross-climate) claims"
+}

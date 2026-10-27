@@ -1,0 +1,41 @@
+{
+  "asserts": [
+    "max(grad+es target) < min(SELECT origin)",
+    "no 2025 anywhere in s2",
+    "role spans disjoint"
+  ],
+  "checkpoint_sha": {
+    "seed123": "2531e931a78e5da6",
+    "seed2026": "be7b399af08d0b85",
+    "seed3407": "6d921179a81ccf5d",
+    "seed42": "2b839579a36c3955",
+    "seed8888": "48b7122a087c8f49"
+  },
+  "early_stop_tail": {
+    "n": 6331,
+    "target_span": [
+      "2024-07-17 00:00",
+      "2024-08-08 00:00"
+    ]
+  },
+  "es_fix": "ES RMSE now computed in kW (legacy stage6 helper compared standardized predictions to kW targets)",
+  "frozen_date": "2024-08-08",
+  "gradients": {
+    "n": 54877,
+    "target_span": [
+      "2024-01-01 00:00",
+      "2024-07-17 00:00"
+    ]
+  },
+  "scaler_fingerprint": "ea3e2bb0d86a02d9",
+  "scaler_fit_on": "gradient rows only (targets < 2024-07-17)",
+  "stage6_locked_cfg": {
+    "batch": 512,
+    "dropout": 0.1,
+    "lr": 0.001,
+    "max_epochs": 100,
+    "patience": 5,
+    "rng": 58003,
+    "wd": 0.0001
+  }
+}

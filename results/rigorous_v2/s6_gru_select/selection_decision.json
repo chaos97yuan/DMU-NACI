@@ -1,0 +1,25 @@
+{
+  "abs_Std_z_minus_1": {
+    "T1p": 0.0057160146350025975,
+    "T2p": 0.05539252657665461,
+    "T3p": 0.07933069359437472
+  },
+  "eligible": [
+    "T1p",
+    "T2p",
+    "T3p"
+  ],
+  "feasible": [
+    "T1p",
+    "T2p",
+    "T3p"
+  ],
+  "median_NLL": {
+    "T1p": -1.043314032563208,
+    "T2p": -1.8244242607435015,
+    "T3p": -1.9754789645531259
+  },
+  "note": "SELECT span only; 2025 never loaded in s6",
+  "rule": "feasible median |Std_z-1|<=0.35 on SELECT; argmin median NLL; ties -> smaller window; eligible={T1p,T2p,T3p}; scaler=common",
+  "winner": "T3p"
+}

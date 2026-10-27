@@ -1,0 +1,90 @@
+# Frozen protocol constants for DKASC Alice Springs Site 18 (5.2 kW, fixed tilt).
+#
+# This file is a human-readable REFLECTION of the constants that are authoritative
+# in code (experiments/rigorous_v2/common_v2.py). It exists for review and diffing
+# only; the pipeline does not read it. tests/test_configs_match_code.py asserts
+# that every value below still equals the code constant, so the two cannot drift.
+
+site:
+  id: "18"
+  name: "DKASC Alice Springs Site 18"
+  rated_power_kw: 5.2          # common_v2.P_RATED
+
+sampling:
+  interval_minutes: 5          # common_v2.SAMPLING_MIN
+  history_steps: 72            # common_v2.HISTORY_STEPS  (6 h x 5 min)
+  horizon_steps: 3             # common_v2.HORIZON_STEPS  (15 min ahead)
+  input_features:              # src/data/schema.py FEATURE_COLUMNS
+    - Active_Power
+    - Global_Horizontal_Radiation
+    - Diffuse_Horizontal_Radiation
+    - Weather_Temperature_Celsius
+    - Weather_Relative_Humidity
+
+seeds: [42, 123, 2026, 3407, 8888]   # common_v2.SEEDS
+
+# common_v2 role boundaries (half-open [lo, hi); MEAN spans select by TARGET,
+# SELECT/CALIB/SAME by forecast ORIGIN)
+spans:
+  mean_gradient:      ["2024-01-01 00:00", "2024-07-17 00:00"]
+  mean_early_stop:    ["2024-07-17 00:00", "2024-08-08 00:00"]
+  select:             ["2024-08-08 00:00", "2024-09-15 23:40"]
+  calib:              ["2024-09-16 00:00", "2024-10-01 23:40"]
+  same:               ["2024-10-02 00:00", "2024-12-31 23:40"]
+  cross:              ["2025-01-01 00:00", "2026-01-01 00:00"]
+
+# common_v2.OOF_FOLDS -- rolling-origin expanding-window folds inside DEV
+oof_folds:
+  - {fold: F1, es_start: "2024-04-10 00:00", train_end: "2024-05-01 00:00", fc: ["2024-05-01 00:00", "2024-06-01 00:00"]}
+  - {fold: F2, es_start: "2024-05-11 00:00", train_end: "2024-06-01 00:00", fc: ["2024-06-01 00:00", "2024-07-01 00:00"]}
+  - {fold: F3, es_start: "2024-06-10 00:00", train_end: "2024-07-01 00:00", fc: ["2024-07-01 00:00", "2024-08-01 00:00"]}
+  - {fold: F4, es_start: "2024-07-11 00:00", train_end: "2024-08-01 00:00", fc: ["2024-08-01 00:00", "2024-08-08 00:00"]}
+
+# common_v2.VINTAGE -- year-ahead vintage models
+vintage:
+  - {tag: M22, train_years: [2021], forecast_year: 2022, es_start: "2021-12-10 00:00"}
+  - {tag: M23, train_years: [2021, 2022], forecast_year: 2023, es_start: "2022-12-10 00:00"}
+  - {tag: M24, train_years: [2021, 2022, 2023], forecast_year: 2024, es_start: "2023-12-10 00:00"}
+
+conformal_aci:
+  alpha: 0.10                  # common_v2.ALPHA (nominal miscoverage)
+  alpha_bounds: [0.001, 0.5]   # common_v2.ALPHA_MIN / ALPHA_MAX
+  epsilon: 1.0e-6              # common_v2.EPS (score/scale noise floor)
+  feedback_delay_minutes: 15   # common_v2.ACI_DELAY_MIN (3 steps x 5 min)
+  gamma_grid: [0.001, 0.002, 0.005, 0.01, 0.02, 0.05]   # common_v2.GAMMA_GRID
+  gamma_rule: "SELECT span: feasible |PICP-0.90|<=0.02, then min IS, then min gamma"
+
+pool_selection:
+  eligible: [T1p, T2p, T3p]
+  feasibility: "median_s |Std_SELECT(z_s) - 1| <= 0.35"
+  objective: "argmin median_s NLL_SELECT; ties -> smaller pool"
+  frozen_winner: "T3p"        # results/rigorous_v2/s6_gru_select/selection_decision.json
+
+models:
+  mean_tcn:                    # MultiScaleTCN locked config (s2)
+    dropout: 0.1
+    branch_channels: 32
+    embedding_dim: 64
+    kernel_size: 3
+    scales_avgpool: {min15: 3, min60: 12}
+    params: 36705
+  gru_scale:                   # ScaleModel("GRU") locked config
+    encoder: "GRU(5->32, 1 layer, unidirectional)"
+    head: "Linear(32->1) + softplus + 1e-6"
+    params: 3777
+
+training:
+  optimizer: "AdamW(lr=1e-3, weight_decay=1e-4)"
+  batch_size: 512
+  max_epochs: 100
+  early_stop_patience: 5
+  shuffle_rng: 58003
+  gru_schedule: "3 outer restarts x 50 epochs, fresh AdamW per restart, no early stop"
+
+evaluation:
+  daylight_rule: "origin GHI > 20 W/m2"          # common_v2.DAYLIGHT_GHI_THRESHOLD
+  bootstrap:
+    replicates: 2000           # common_v2.N_BOOTSTRAP
+    scheme: "two-level: seeds with replacement, then day-blocks within seed (paired days)"
+    draw_seed: 2026            # s10_two_level_bootstrap.RNG_SEED
+  rated_normalization: 5.2

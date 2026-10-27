@@ -1,0 +1,73 @@
+{
+  "site": "1B",
+  "p_rated_kw": 23.4,
+  "input_dim": 5,
+  "sampling_min": 5,
+  "history_steps": 72,
+  "horizon_steps": 3,
+  "raw_rows_scanned": 415872,
+  "clean_rows": 420768,
+  "cleaning_counts": {},
+  "rules": {
+    "sentinel >90000 / <-1e8 / inf -> NaN": true,
+    "power > 25 kW -> NaN (auto-removes 2025-02-04 16:30 spike)": true,
+    "night tare (small negative power) kept": true,
+    "radiation [-5,0) -> 0; < -5 -> NaN; > 1500 -> NaN": true,
+    "T outside [-50,60] -> NaN; RH outside [0,100] -> NaN": true,
+    "no interpolation, no backfill; incomplete windows dropped": true
+  },
+  "per_year": [
+    {
+      "year": 2022,
+      "grid_rows": 105120,
+      "all5_valid": 101102,
+      "all5_pct": 96.18
+    },
+    {
+      "year": 2023,
+      "grid_rows": 105120,
+      "all5_valid": 98753,
+      "all5_pct": 93.94
+    },
+    {
+      "year": 2024,
+      "grid_rows": 105408,
+      "all5_valid": 100644,
+      "all5_pct": 95.48
+    },
+    {
+      "year": 2025,
+      "grid_rows": 105120,
+      "all5_valid": 97205,
+      "all5_pct": 92.47
+    }
+  ],
+  "valid_windows": [
+    {
+      "year": 2022,
+      "valid_windows": 97415
+    },
+    {
+      "year": 2023,
+      "valid_windows": 90943
+    },
+    {
+      "year": 2024,
+      "valid_windows": 91656
+    },
+    {
+      "year": 2025,
+      "valid_windows": 87839
+    }
+  ],
+  "dataset_sha16": "8f7f1ece94f3518e",
+  "columns": [
+    "timestamp",
+    "active_power_kw",
+    "temperature_c",
+    "relative_humidity_pct",
+    "ghi_wm2",
+    "dhi_wm2",
+    "valid_flag"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "assert": "max(train target) < min(forecast target) per vintage/seed",
+  "checkpoint_sha": {
+    "M22_seed123.pt": "40e28d23629134be",
+    "M22_seed2026.pt": "9a55ecce9aca9c0b",
+    "M22_seed3407.pt": "42bb80b6a2c32a7c",
+    "M22_seed42.pt": "6aef62aa9e6d4023",
+    "M22_seed8888.pt": "1397671a6db29f36",
+    "M23_seed123.pt": "3676fafdbb0a6699",
+    "M23_seed2026.pt": "e071e2ce09a3e318",
+    "M23_seed3407.pt": "175e7c11b253b3cc",
+    "M23_seed42.pt": "cf2cdf6c33850a83",
+    "M23_seed8888.pt": "63601c5a2e4de7ea",
+    "M24_seed123.pt": "09758a71749fd263",
+    "M24_seed2026.pt": "3016df5806963742",
+    "M24_seed3407.pt": "99b3706e0c012451",
+    "M24_seed42.pt": "a24c98fc24ae4d72",
+    "M24_seed8888.pt": "39e743c523a3eb64"
+  },
+  "definition": "operational-style forward vintages: each year forecast by a model trained only on preceding years",
+  "provenance": "VINTAGE_OOS",
+  "vintages": [
+    {
+      "MAE": 0.11688868043485948,
+      "RMSE": 0.29898525620585886,
+      "abs_q95": 0.629307688631512,
+      "fc_year": 2022,
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "n_es": 6336,
+      "n_fc": 102570,
+      "n_grad": 93494,
+      "residual_std": 0.29884006852140343,
+      "tag": "M22",
+      "train_years": [
+        2021
+      ]
+    },
+    {
+      "MAE": 0.10217230603869236,
+      "RMSE": 0.28370451522700546,
+      "abs_q95": 0.5558388341555802,
+      "fc_year": 2023,
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "n_es": 6334,
+      "n_fc": 99371,
+      "n_grad": 196066,
+      "residual_std": 0.28359622575758225,
+      "tag": "M23",
+      "train_years": [
+        2021,
+        2022
+      ]
+    },
+    {
+      "MAE": 0.11392008715256027,
+      "RMSE": 0.3113796916186422,
+      "abs_q95": 0.6550870497025771,
+      "fc_year": 2024,
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "n_es": 4251,
+      "n_fc": 102627,
+      "n_grad": 297520,
+      "residual_std": 0.31136214748939933,
+      "tag": "M24",
+      "train_years": [
+        2021,
+        2022,
+        2023
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "assert": "replay years disjoint from model training year (2024) by construction",
+  "definition": "residuals of the frozen deployed forecaster replayed on archived inputs (out-of-sample for the model; retrospective by construction; executable at deployment date 2024-10-01)",
+  "model": "s2 final mean (trained on 2024 gradient rows <2024-07-17 + ES tail <2024-08-08), matched seeds",
+  "per_year": [
+    {
+      "MAE": 0.12047154473792,
+      "RMSE": 0.3022832919423393,
+      "abs_q50": 0.015955770719119744,
+      "abs_q95": 0.6498976969588106,
+      "abs_q99": 1.437974407794953,
+      "daylight_share": 0.47638685775567907,
+      "first_origin": "2022-01-01 05:55:00",
+      "last_origin": "2022-12-31 23:40:00",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "n": 102570,
+      "residual_std": 0.30225104787039686,
+      "year": 2022
+    },
+    {
+      "MAE": 0.1096677134849089,
+      "RMSE": 0.29172905707545316,
+      "abs_q50": 0.013822389124785506,
+      "abs_q95": 0.5781978699307673,
+      "abs_q99": 1.4254077242468006,
+      "daylight_share": 0.4685169717523221,
+      "first_origin": "2023-01-01 06:00:00",
+      "last_origin": "2023-12-29 04:50:00",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "n": 99371,
+      "residual_std": 0.29166430788201547,
+      "year": 2023
+    }
+  ],
+  "provenance": "REPLAY_OOS",
+  "scaler": "common deployment scaler (s2), identical for both years"
+}

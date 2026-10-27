@@ -1,0 +1,36 @@
+# Frozen protocol constants for DKASC Alice Springs Site 1B (23.4 kW, dual-axis
+# tracking). Authoritative in code: experiments/site1b_validation/common_1b.py.
+# tests/test_configs_match_code.py asserts these values against the code.
+
+site:
+  id: "1B"
+  name: "DKASC Alice Springs Site 1B"
+  rated_power_kw: 23.4         # common_1b.P_RATED_1B
+  tracker: "dual-axis"
+  raw_columns:                 # common_1b.RAW_COLS (same DKASC weather station)
+    power: "87_DKA_M9_A_C_Phases_Active_Power"
+    GHI: "101_DKA_WeatherStation_Global_Horizontal_Radiation"
+    DHI: "101_DKA_WeatherStation_Diffuse_Horizontal_Radiation"
+    T: "101_DKA_WeatherStation_Weather_Temperature_Celsius"
+    RH: "101_DKA_WeatherStation_Weather_Relative_Humidity"
+  feature_order: [power, GHI, DHI, T, RH]   # == Site 18 order
+
+cleaning:                      # common_1b.build_clean (NO interpolation anywhere)
+  power_cap_kw: 25.0           # 1.07 x rated; removes the 2025-02-04 16:30 spike
+  radiation_small_negative_kw: 5.0
+  radiation_hard_max: 1500.0
+  temperature_range_c: [-50, 60]
+  humidity_range_pct: [0, 100]
+  missing_policy: "windows containing NaN rows are excluded (contiguous-valid-run rule)"
+
+protocol_inherited_from_site18:
+  seeds: [42, 123, 2026, 3407, 8888]
+  history_steps: 72
+  horizon_steps: 3
+  alpha: 0.10
+  architecture: "identical MultiScaleTCN + GRU ScaleModel; retrained per site"
+  note: "every algorithmic decision is imported from experiments/rigorous_v2.common_v2; only data, rated capacity and retrained weights differ"
+
+evaluation:
+  rated_normalization: 23.4
+  valid_windows_2025: 87839    # Table 1

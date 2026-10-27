@@ -1,0 +1,107 @@
+{
+  "site": "1B",
+  "p_rated_kw": 23.4,
+  "created": "2026-10-02T12:19:53.331764",
+  "protocol": "cross-system validation under shared meteorological environment; T3' = E24_OOF + E23_replay + E22_replay (Site 18 final config)",
+  "clean_dataset_sha16": "8f7f1ece94f3518e",
+  "mean_ck": {
+    "site1b_mean_checkpoint_seed123.pt": "9e6f91f1598d0d21",
+    "site1b_mean_checkpoint_seed2026.pt": "082ae83c4fc51f54",
+    "site1b_mean_checkpoint_seed3407.pt": "7ffeb79a5a3a4b2e",
+    "site1b_mean_checkpoint_seed42.pt": "1c003f5bd87a15ba",
+    "site1b_mean_checkpoint_seed8888.pt": "133ea3d089cffb90"
+  },
+  "oof_ck": {
+    "site1b_oof_F1_seed123.pt": "9ee6d5cd4265f8dc",
+    "site1b_oof_F1_seed2026.pt": "f1363a525b1b63b2",
+    "site1b_oof_F1_seed3407.pt": "37ff5bd7e8bd936e",
+    "site1b_oof_F1_seed42.pt": "43ffcbdadd2323fd",
+    "site1b_oof_F1_seed8888.pt": "69534b5a0c4d6dd4",
+    "site1b_oof_F2_seed123.pt": "8d0e0bab7c9bdb56",
+    "site1b_oof_F2_seed2026.pt": "72e7155509f32ed6",
+    "site1b_oof_F2_seed3407.pt": "5f0ad04a97770611",
+    "site1b_oof_F2_seed42.pt": "5424f34684ca0d03",
+    "site1b_oof_F2_seed8888.pt": "1a0065654d4b8072",
+    "site1b_oof_F3_seed123.pt": "de9073d21f39f880",
+    "site1b_oof_F3_seed2026.pt": "6193b8ef18021d40",
+    "site1b_oof_F3_seed3407.pt": "8177f78959e0aae6",
+    "site1b_oof_F3_seed42.pt": "d8628b1074b06685",
+    "site1b_oof_F3_seed8888.pt": "7d23686e4f39e567",
+    "site1b_oof_F4_seed123.pt": "691f4eb8a7911a02",
+    "site1b_oof_F4_seed2026.pt": "8125bf8879b4e58c",
+    "site1b_oof_F4_seed3407.pt": "be814acbb1a78e5b",
+    "site1b_oof_F4_seed42.pt": "d8d9adbb8e51b3bf",
+    "site1b_oof_F4_seed8888.pt": "3e04abe6111ea6f2"
+  },
+  "gru_ck": {
+    "site1b_gru_T3p_seed123.pt": "15cc774d367960d5",
+    "site1b_gru_T3p_seed2026.pt": "ebbd62c6bc4c6120",
+    "site1b_gru_T3p_seed3407.pt": "d990ad0120119206",
+    "site1b_gru_T3p_seed42.pt": "e00d1688ed67c7b3",
+    "site1b_gru_T3p_seed8888.pt": "460d8f789d99266b"
+  },
+  "scaler_fp": "2c0d77f2f8fed962",
+  "gamma_q": {
+    "42": {
+      "gamma_A3": 0.05,
+      "gamma_A1": 0.05,
+      "q_abs": 1.8754429817199707,
+      "q_norm": 1.4579182170931788
+    },
+    "123": {
+      "gamma_A3": 0.005,
+      "gamma_A1": 0.05,
+      "q_abs": 1.905580997467041,
+      "q_norm": 1.4474752342607342
+    },
+    "2026": {
+      "gamma_A3": 0.002,
+      "gamma_A1": 0.05,
+      "q_abs": 1.8722548484802246,
+      "q_norm": 1.464220517248482
+    },
+    "3407": {
+      "gamma_A3": 0.01,
+      "gamma_A1": 0.05,
+      "q_abs": 1.9831628799438477,
+      "q_norm": 1.3746185556908315
+    },
+    "8888": {
+      "gamma_A3": 0.02,
+      "gamma_A1": 0.05,
+      "q_abs": 1.8677699565887451,
+      "q_norm": 1.4155853467945396
+    }
+  },
+  "seeds": [
+    42,
+    123,
+    2026,
+    3407,
+    8888
+  ],
+  "metrics": [
+    "PICP",
+    "PINAW",
+    "IS",
+    "NIS(=/23.4)",
+    "RCE1D",
+    "RCE3D",
+    "LongestMissStreak",
+    "RMSE/nRMSE",
+    "MAE/nMAE"
+  ],
+  "bootstrap": "day-block paired, 2000 resamples, A3 vs A0/A2/CQR on IS/NIS/RCE1D",
+  "cross_definition": "2025 calendar year, available valid windows (coverage reported)",
+  "asserts": [
+    "select_end < calib_start",
+    "calib_end < same_start",
+    "same_end < cross_start",
+    "no 2025 in training/scaler/selection/calibration",
+    "train_end < oof forecast start (every fold)",
+    "capacity == 23.4 kW",
+    "input_dim == 5",
+    "history == 72",
+    "horizon == 3"
+  ]
+}

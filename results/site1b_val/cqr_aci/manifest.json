@@ -1,0 +1,46 @@
+{
+  "cqr_checkpoints": {
+    "site1b_cqr_seed42.pt": "9aa4498e9cf8f7e4b5d4a66819012f60f6f18480e201d64e10e67dc37499c0c6",
+    "site1b_cqr_seed123.pt": "2c06ace83d8a6bdc133e19dd5c6cb1f43fbb4d43124413723dca8178328e6440",
+    "site1b_cqr_seed2026.pt": "35656cdce14b2e19928d9ace3b3db61c046a4839962eab712ea4771e879bb6b4",
+    "site1b_cqr_seed3407.pt": "2cf71c7b3ba086fcd164f5f3d2b776bd4f562ea99a8d4055a0addd486a5b37e6",
+    "site1b_cqr_seed8888.pt": "f15c5fe9479fcff602d4c33d6b147d03b26959c26af17f6b2fe6e26bab850ee1"
+  },
+  "code_hash": "23f1a6fbd65f4706a72152be12c895ddbd625da329ca2e7f41854e4ab9b2ecf0",
+  "seeds": [
+    42,
+    123,
+    2026,
+    3407,
+    8888
+  ],
+  "selected_gamma_cqr_aci": {
+    "42": 0.05,
+    "123": 0.01,
+    "2026": 0.002,
+    "3407": 0.002,
+    "8888": 0.02
+  },
+  "gamma_grid": [
+    0.001,
+    0.002,
+    0.005,
+    0.01,
+    0.02,
+    0.05
+  ],
+  "gamma_selection_criterion": "|PICP-0.90|<=0.02 feasible on SELECT, then min IS, then min gamma (same as A1/A3)",
+  "calib_period": [
+    "2024-09-16 00:00",
+    "2024-10-01 23:40"
+  ],
+  "n_calibration_scores": 4227,
+  "feedback_delay_steps": 3,
+  "feedback_delay_min": 15,
+  "quantile_rule": "empirical (n+1)-quantile, ceil((n+1)(1-alpha)), clipped to [1,n]; negative q allowed",
+  "projection": "none (inherits final CQR convention)",
+  "alpha_bounds": [
+    0.001,
+    0.5
+  ]
+}

@@ -1,0 +1,97 @@
+[site18] seed 42: arms replayed + frozen-metric assertions passed
+[site18] seed 123: arms replayed + frozen-metric assertions passed
+[site18] seed 2026: arms replayed + frozen-metric assertions passed
+[site18] seed 3407: arms replayed + frozen-metric assertions passed
+[site18] seed 8888: arms replayed + frozen-metric assertions passed
+[site18] A3-vs-A0 IS: point -0.9135 two-level 95% CI [-0.9461, -0.8882] (0.1s)
+[site18] A3-vs-A0 RCE1D: point -0.0418 two-level 95% CI [-0.0459, -0.0399] (0.2s)
+[site18] A3-vs-A2 IS: point -0.0094 two-level 95% CI [-0.0161, +0.0006] (0.0s)
+[site18] A3-vs-A2 RCE1D: point -0.0120 two-level 95% CI [-0.0160, -0.0081] (0.2s)
+[site18] A3-vs-CQR IS: point -0.0893 two-level 95% CI [-0.1349, -0.0478] (0.0s)
+[site18] A3-vs-CQR RCE1D: point -0.0224 two-level 95% CI [-0.0299, -0.0210] (0.2s)
+[site18] A3-vs-CQR-ACI IS: point -0.0626 two-level 95% CI [-0.1096, -0.0326] (0.0s)
+[site18] A3-vs-CQR-ACI RCE1D: point +0.0036 two-level 95% CI [-0.0098, +0.0172] (0.2s)
+[site18] A2-vs-T1p IS: point -0.6676 two-level 95% CI [-1.4117, -0.3074] (0.0s)
+[site18] A2-vs-T1p PICP: point -0.0137 two-level 95% CI [-0.0329, +0.0323] (0.0s)
+[site18] A2-vs-T1p abs_Std_z_minus_1: point -0.0674 two-level 95% CI [-0.4240, +0.3610] (0.1s)
+    Spearman draw 400/2000 (51s)
+    Spearman draw 800/2000 (102s)
+    Spearman draw 1200/2000 (153s)
+    Spearman draw 1600/2000 (203s)
+    Spearman draw 2000/2000 (253s)
+[site18] A2-vs-T1p Spearman: point +0.2165 two-level 95% CI [+0.1086, +0.2901] (253.4s)
+[site18] T3match-vs-T1p IS: point -0.4887 two-level 95% CI [-1.2985, -0.2136] (0.0s)
+[site18] T3match-vs-T1p PICP: point -0.0017 two-level 95% CI [-0.0273, +0.0252] (0.0s)
+[site18] T3match-vs-T1p abs_Std_z_minus_1: point -0.2004 two-level 95% CI [-1.0356, +0.2546] (0.1s)
+    Spearman draw 400/2000 (51s)
+    Spearman draw 800/2000 (100s)
+    Spearman draw 1200/2000 (151s)
+    Spearman draw 1600/2000 (200s)
+    Spearman draw 2000/2000 (249s)
+[site18] T3match-vs-T1p Spearman: point +0.1296 two-level 95% CI [+0.0376, +0.2151] (248.9s)
+[site18] T1p-vs-T1in IS: point +0.6485 two-level 95% CI [+0.2748, +1.3880] (0.0s)
+[site18] T1p-vs-T1in PICP: point +0.0055 two-level 95% CI [-0.0406, +0.0260] (0.0s)
+[site18] T1p-vs-T1in abs_Std_z_minus_1: point +0.2062 two-level 95% CI [-0.4651, +0.9784] (0.1s)
+    Spearman draw 400/2000 (51s)
+    Spearman draw 800/2000 (100s)
+    Spearman draw 1200/2000 (151s)
+    Spearman draw 1600/2000 (203s)
+    Spearman draw 2000/2000 (251s)
+[site18] T1p-vs-T1in Spearman: point -0.2316 two-level 95% CI [-0.2936, -0.1066] (251.2s)
+[site18] V3-vs-V1 IS: point -0.0348 two-level 95% CI [-0.8668, +0.3239] (0.0s)
+[site18] V3-vs-V1 PICP: point +0.0282 two-level 95% CI [-0.0362, +0.0590] (0.0s)
+[site18] V3-vs-V1 abs_Std_z_minus_1: point +0.0762 two-level 95% CI [-1.1858, +0.3685] (0.1s)
+    Spearman draw 400/2000 (50s)
+    Spearman draw 800/2000 (101s)
+    Spearman draw 1200/2000 (151s)
+    Spearman draw 1600/2000 (201s)
+    Spearman draw 2000/2000 (252s)
+[site18] V3-vs-V1 Spearman: point +0.0495 two-level 95% CI [+0.0096, +0.1232] (251.8s)
+site18 done in 17.0 min
+[site1b] seed 42: A0/A2/A3/CQR/CQR-ACI replayed + assertions passed
+[site1b] seed 123: A0/A2/A3/CQR/CQR-ACI replayed + assertions passed
+[site1b] seed 2026: A0/A2/A3/CQR/CQR-ACI replayed + assertions passed
+[site1b] seed 3407: A0/A2/A3/CQR/CQR-ACI replayed + assertions passed
+[site1b] seed 8888: A0/A2/A3/CQR/CQR-ACI replayed + assertions passed
+[site1b] A3-vs-CQR IS: point -0.0103 two-level 95% CI [-0.6237, +0.2425] (0.0s)
+[site1b] A3-vs-CQR RCE1D: point -0.0176 two-level 95% CI [-0.0461, -0.0117] (0.2s)
+[site1b] A3-vs-CQR-ACI IS: point -0.0103 two-level 95% CI [-0.4691, +0.2447] (0.0s)
+[site1b] A3-vs-CQR-ACI RCE1D: point +0.0012 two-level 95% CI [-0.0145, +0.0108] (0.2s)
+[site1b] A3-vs-A0 IS: point -2.4476 two-level 95% CI [-2.5556, -2.2783] (0.0s)
+[site1b] A3-vs-A0 RCE1D: point -0.0479 two-level 95% CI [-0.0557, -0.0400] (0.2s)
+[site1b] A3-vs-A2 IS: point -0.0200 two-level 95% CI [-0.0464, +0.0041] (0.0s)
+[site1b] A3-vs-A2 RCE1D: point -0.0427 two-level 95% CI [-0.0529, -0.0298] (0.2s)
+site1b done in 0.2 min
+  site           pair            metric  point_median_seed_diff  ci_lower_two_level  ci_upper_two_level  draw_median    B  seconds
+site18       A3-vs-A0                IS               -0.913543           -0.946098           -0.888205    -0.916906 2000      0.1
+site18       A3-vs-A0             RCE1D               -0.041790           -0.045911           -0.039914    -0.042167 2000      0.2
+site18       A3-vs-A2                IS               -0.009420           -0.016125            0.000593    -0.005776 2000      0.0
+site18       A3-vs-A2             RCE1D               -0.012042           -0.016034           -0.008117    -0.011995 2000      0.2
+site18      A3-vs-CQR                IS               -0.089335           -0.134866           -0.047841    -0.089742 2000      0.0
+site18      A3-vs-CQR             RCE1D               -0.022402           -0.029875           -0.020958    -0.023805 2000      0.2
+site18  A3-vs-CQR-ACI                IS               -0.062627           -0.109561           -0.032569    -0.067951 2000      0.0
+site18  A3-vs-CQR-ACI             RCE1D                0.003578           -0.009830            0.017212     0.003256 2000      0.2
+site18      A2-vs-T1p                IS               -0.667601           -1.411665           -0.307413    -0.666477 2000      0.0
+site18      A2-vs-T1p              PICP               -0.013691           -0.032944            0.032337    -0.014004 2000      0.0
+site18      A2-vs-T1p abs_Std_z_minus_1               -0.067433           -0.424023            0.360978    -0.107413 2000      0.1
+site18      A2-vs-T1p          Spearman                0.216455            0.108600            0.290145     0.213988 2000    253.4
+site18 T3match-vs-T1p                IS               -0.488721           -1.298479           -0.213632    -0.486325 2000      0.0
+site18 T3match-vs-T1p              PICP               -0.001659           -0.027308            0.025179    -0.001098 2000      0.0
+site18 T3match-vs-T1p abs_Std_z_minus_1               -0.200389           -1.035598            0.254582    -0.246607 2000      0.1
+site18 T3match-vs-T1p          Spearman                0.129616            0.037639            0.215146     0.129659 2000    248.9
+site18    T1p-vs-T1in                IS                0.648504            0.274800            1.388029     0.645352 2000      0.0
+site18    T1p-vs-T1in              PICP                0.005538           -0.040610            0.025970     0.005454 2000      0.0
+site18    T1p-vs-T1in abs_Std_z_minus_1                0.206197           -0.465082            0.978404     0.204347 2000      0.1
+site18    T1p-vs-T1in          Spearman               -0.231648           -0.293630           -0.106554    -0.230672 2000    251.2
+site18       V3-vs-V1                IS               -0.034844           -0.866845            0.323856    -0.029515 2000      0.0
+site18       V3-vs-V1              PICP                0.028156           -0.036167            0.059001     0.028113 2000      0.0
+site18       V3-vs-V1 abs_Std_z_minus_1                0.076154           -1.185838            0.368546     0.085762 2000      0.1
+site18       V3-vs-V1          Spearman                0.049522            0.009553            0.123178     0.049544 2000    251.8
+site1b      A3-vs-CQR                IS               -0.010291           -0.623730            0.242470    -0.012276 2000      0.0
+site1b      A3-vs-CQR             RCE1D               -0.017603           -0.046083           -0.011666    -0.018294 2000      0.2
+site1b  A3-vs-CQR-ACI                IS               -0.010297           -0.469088            0.244652    -0.008976 2000      0.0
+site1b  A3-vs-CQR-ACI             RCE1D                0.001208           -0.014542            0.010794     0.001222 2000      0.2
+site1b       A3-vs-A0                IS               -2.447563           -2.555631           -2.278328    -2.422735 2000      0.0
+site1b       A3-vs-A0             RCE1D               -0.047873           -0.055691           -0.039972    -0.048199 2000      0.2
+site1b       A3-vs-A2                IS               -0.020002           -0.046386            0.004078    -0.019113 2000      0.0
+site1b       A3-vs-A2             RCE1D               -0.042733           -0.052919           -0.029762    -0.043242 2000      0.2

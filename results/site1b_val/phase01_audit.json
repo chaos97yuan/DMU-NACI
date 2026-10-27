@@ -1,0 +1,222 @@
+{
+  "candidates": [
+    {
+      "file": "data/raw/Alice_Springs_2021.csv",
+      "system": "87 DKA M9 A+C Phases",
+      "channel": "87_DKA_M9_A_C_Phases_Active_Power",
+      "evidence": "DKASC page slug dka-m9-a-c-phases = 'Alice Springs 1B Trina mono-Si Dual 2009'; peaks 21.8-23.0 kW vs 23.4 kW rated"
+    },
+    {
+      "file": "data/raw/Alice_Springs_2022.csv",
+      "system": "87 DKA M9 A+C Phases",
+      "channel": "87_DKA_M9_A_C_Phases_Active_Power",
+      "evidence": "DKASC page slug dka-m9-a-c-phases = 'Alice Springs 1B Trina mono-Si Dual 2009'; peaks 21.8-23.0 kW vs 23.4 kW rated"
+    },
+    {
+      "file": "data/raw/Alice_Springs_2023.csv",
+      "system": "87 DKA M9 A+C Phases",
+      "channel": "87_DKA_M9_A_C_Phases_Active_Power",
+      "evidence": "DKASC page slug dka-m9-a-c-phases = 'Alice Springs 1B Trina mono-Si Dual 2009'; peaks 21.8-23.0 kW vs 23.4 kW rated"
+    },
+    {
+      "file": "data/raw/Alice_Springs_2024.csv",
+      "system": "87 DKA M9 A+C Phases",
+      "channel": "87_DKA_M9_A_C_Phases_Active_Power",
+      "evidence": "DKASC page slug dka-m9-a-c-phases = 'Alice Springs 1B Trina mono-Si Dual 2009'; peaks 21.8-23.0 kW vs 23.4 kW rated"
+    },
+    {
+      "file": "data/raw/Alice_Springs_2025.csv",
+      "system": "87 DKA M9 A+C Phases",
+      "channel": "87_DKA_M9_A_C_Phases_Active_Power",
+      "evidence": "DKASC page slug dka-m9-a-c-phases = 'Alice Springs 1B Trina mono-Si Dual 2009'; peaks 21.8-23.0 kW vs 23.4 kW rated"
+    }
+  ],
+  "rejected": [
+    {
+      "channel": "103_DKA_M1_B_Phase_Active_Power",
+      "reason": "peaks 1.8 kW; name-similarity trap ('M1_B' != Site 1B)"
+    },
+    {
+      "channel": "78_DKA_M11_3_Phase_Active_Power",
+      "reason": "peaks ~23.5 kW but is a different DKASC system (M11), not the 1B tracker page"
+    }
+  ],
+  "site_metadata": {
+    "name": "DKASC Alice Springs Site 1B",
+    "source_page": "https://dkasolarcentre.com.au/source/alice-springs/dka-m9-a-c-phases",
+    "official_title": "DKASC, Alice Springs 1B Trina mono-Si Dual 2009",
+    "technology": "Trina mono-Si, dual-axis tracking, 4 trackers, commissioned 2009",
+    "rated_capacity_kw": 23.4,
+    "rated_capacity_source": "literature (IET RPG / Frontiers studies cite 23.4 kW); data max 21.8-23.0 kW",
+    "shared_weather_with_site18": "101 DKA WeatherStation (same physical channels)",
+    "relationship_to_site18": "same meteorological environment; different capacity, array configuration and tracking; supports cross-system (not cross-climate) claims"
+  },
+  "per_year": [
+    {
+      "year": 2021,
+      "rows": 100833,
+      "expected": 105120,
+      "coverage_pct": 95.92,
+      "power_valid_pct": 99.99,
+      "GHI_valid_pct": 99.98,
+      "DHI_valid_pct": 99.99,
+      "T_valid_pct": 99.99,
+      "RH_valid_pct": 99.04,
+      "all5_valid_pct": 99.03,
+      "pct_5min": 99.986,
+      "power_max_kw": 21.89,
+      "power_negative_count": 4066,
+      "power_gt_rated_count": 0,
+      "dhi_gt_ghi_pct": 1.231
+    },
+    {
+      "year": 2022,
+      "rows": 103191,
+      "expected": 105120,
+      "coverage_pct": 98.16,
+      "power_valid_pct": 99.99,
+      "GHI_valid_pct": 99.98,
+      "DHI_valid_pct": 99.99,
+      "T_valid_pct": 99.99,
+      "RH_valid_pct": 98.25,
+      "all5_valid_pct": 98.25,
+      "pct_5min": 99.992,
+      "power_max_kw": 21.82,
+      "power_negative_count": 1063,
+      "power_gt_rated_count": 0,
+      "dhi_gt_ghi_pct": 0.432
+    },
+    {
+      "year": 2023,
+      "rows": 101902,
+      "expected": 105120,
+      "coverage_pct": 96.94,
+      "power_valid_pct": 99.42,
+      "GHI_valid_pct": 99.38,
+      "DHI_valid_pct": 99.38,
+      "T_valid_pct": 99.37,
+      "RH_valid_pct": 96.92,
+      "all5_valid_pct": 96.91,
+      "pct_5min": 99.909,
+      "power_max_kw": 15.82,
+      "power_negative_count": 590,
+      "power_gt_rated_count": 0,
+      "dhi_gt_ghi_pct": 0.902
+    },
+    {
+      "year": 2024,
+      "rows": 105386,
+      "expected": 105408,
+      "coverage_pct": 99.98,
+      "power_valid_pct": 98.07,
+      "GHI_valid_pct": 98.07,
+      "DHI_valid_pct": 98.08,
+      "T_valid_pct": 98.08,
+      "RH_valid_pct": 95.51,
+      "all5_valid_pct": 95.5,
+      "pct_5min": 99.974,
+      "power_max_kw": 23.02,
+      "power_negative_count": 615,
+      "power_gt_rated_count": 0,
+      "dhi_gt_ghi_pct": 1.606
+    },
+    {
+      "year": 2025,
+      "rows": 105393,
+      "expected": 105120,
+      "coverage_pct": 100.26,
+      "power_valid_pct": 99.8,
+      "GHI_valid_pct": 94.05,
+      "DHI_valid_pct": 94.05,
+      "T_valid_pct": 94.05,
+      "RH_valid_pct": 92.51,
+      "all5_valid_pct": 92.5,
+      "pct_5min": 99.97,
+      "power_max_kw": 72.04,
+      "power_negative_count": 716,
+      "power_gt_rated_count": 1,
+      "dhi_gt_ghi_pct": 1.584
+    }
+  ],
+  "window_coverage": [
+    {
+      "year": 2021,
+      "grid_rows": 105408,
+      "all5_valid": 99858,
+      "valid_windows_with_target": 96447,
+      "window_coverage_pct": 91.81
+    },
+    {
+      "year": 2022,
+      "grid_rows": 105408,
+      "all5_valid": 101386,
+      "valid_windows_with_target": 97442,
+      "window_coverage_pct": 92.76
+    },
+    {
+      "year": 2023,
+      "grid_rows": 105120,
+      "all5_valid": 98749,
+      "valid_windows_with_target": 90998,
+      "window_coverage_pct": 86.62
+    },
+    {
+      "year": 2024,
+      "grid_rows": 105408,
+      "all5_valid": 100640,
+      "valid_windows_with_target": 91626,
+      "window_coverage_pct": 86.98
+    },
+    {
+      "year": 2025,
+      "grid_rows": 105408,
+      "all5_valid": 97491,
+      "valid_windows_with_target": 88168,
+      "window_coverage_pct": 83.93
+    }
+  ],
+  "shared_weather_vs_site18_processed_2022": {
+    "GHI": {
+      "n": 102886,
+      "pearson": 1.0,
+      "MAE": 0.0,
+      "exact_match_pct": 100.0
+    },
+    "DHI": {
+      "n": 102890,
+      "pearson": 1.0,
+      "MAE": 0.0,
+      "exact_match_pct": 100.0
+    },
+    "T": {
+      "n": 102890,
+      "pearson": 1.0,
+      "MAE": 0.0,
+      "exact_match_pct": 100.0
+    },
+    "RH": {
+      "n": 101102,
+      "pearson": 1.0,
+      "MAE": 0.0,
+      "exact_match_pct": 100.0
+    }
+  },
+  "tracker_profile_check": {
+    "clear_days_n": 10,
+    "noon_median_kw": 14.54,
+    "midday_flatness_std_over_mean": 0.099,
+    "early_0830_over_noon": 0.532,
+    "late_1530_over_noon": 0.806,
+    "interpretation": "flat midday plateau with high shoulder ratios indicates dual-axis tracking (fixed-tilt Site 18 shows cosine arcs)"
+  },
+  "protocol_recommendation": {
+    "historical_replay_years": [
+      2022,
+      2023
+    ],
+    "development": 2024,
+    "cross_test": 2025,
+    "rationale": "window coverage >=80%% for 2022-2025 -> symmetric protocol with Site 18 rigorous_v2"
+  },
+  "phase01_verdict": "PASS"
+}

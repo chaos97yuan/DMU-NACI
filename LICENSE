@@ -1,0 +1,27 @@
+Copyright (c) 2026 the DMU-NACI authors:
+Chaoyuan Shi, Cheng Jin, Shuoguo Zhang, Zhiyun Xiao.
+
+All rights reserved.
+
+STATUS: this is a PLACEHOLDER, not an open-source license. It will be replaced
+by the full text of the license the rights holders select (MIT or Apache-2.0;
+candidate texts are provided in docs/license_candidates/). Until that
+replacement, the terms below apply.
+
+This software is made available for peer review and reproducibility of the
+manuscript "Provenance-Controlled Residual Learning with Adaptive Conformal
+Calibration for Cross-Year PV Prediction Intervals" (manuscript in
+preparation for submission to Solar Energy) ONLY.
+
+Redistribution and use in source and binary forms, with or without
+modification, are NOT permitted until the authors finalize an open-source
+license. No license is granted by this placeholder: all rights are reserved
+by the copyright holders above.
+
+Please contact the corresponding author (see CITATION.cff) for any use
+beyond running the code locally for verification.
+
+Third-party components remain under their own licenses:
+PyTorch (BSD-style), NumPy (BSD), pandas (BSD), SciPy (BSD), Matplotlib
+(matplotlib license), pyarrow (Apache-2.0), PyYAML (MIT), pytest (MIT).
+None of these are redistributed with this repository.
